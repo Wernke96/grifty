@@ -104,3 +104,12 @@ button {
     display: inline-block;
     min-width: 40px;
 }
+
+.agent-gif {
+    width: 200px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+    border: 3px solid gold;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
