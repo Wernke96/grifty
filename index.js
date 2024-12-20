@@ -5,6 +5,22 @@ function updateHitCounter() {
     document.getElementById('hitCounter').textContent = hits;
 }
 
+function updateCountdown() {
+    const targetDate = new Date('January 1, 2025 00:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
 const predictions = [
     "ChatGPT 5 will become self-aware and start its own podcast network",
     "Blockchain technology will be used to track and authenticate dad jokes",
@@ -34,6 +50,10 @@ const scamTitles = [
 window.onload = function() {
     // Update hit counter
     updateHitCounter();
+
+    // Start countdown
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     // Prompt for user information
     const userName = prompt("Enter your name to receive your personalized AI-Blockchain destiny:", "Anonymous");
