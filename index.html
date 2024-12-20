@@ -1,140 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
     <title>🚀 ULTRA AI BLOCKCHAIN PREDICTOR 3000 💎</title>
-    <style>
-        body {
-            background: linear-gradient(45deg, #ff00ff, #00ffff);
-            font-family: 'Comic Sans MS', cursive;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            color: #fff;
-        }
-
-        .blink {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        button {
-            background: gold;
-            border: 5px solid red;
-            padding: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            margin: 20px;
-            border-radius: 10px;
-        }
-
-        .prediction-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        .prediction-item {
-            background: rgba(255, 255, 255, 0.1);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid gold;
-            text-align: left;
-            font-size: 18px;
-            transition: transform 0.3s;
-        }
-
-        .prediction-item:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .timestamp {
-            font-size: 12px;
-            color: #aaa;
-            display: block;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="blink">🔮 AI BLOCKCHAIN FORTUNE TELLER 🔮</h1>
         <h2>100% Guaranteed* Predictions</h2>
         <small>*Not actually guaranteed</small>
-        
+
         <button onclick="generatePrediction()">GENERATE MORE PREDICTIONS</button>
-        
+
         <ul id="predictionList" class="prediction-list"></ul>
     </div>
 
-    <script>
-        const scamWords = [
-            "Web 5.0", "Quantum AI", "Neural Blockchain", "Meta-verse", 
-            "Deep Learning NFTs", "AI-Powered Smart Contracts",
-            "Decentralized Intelligence", "Blockchain ChatGPT",
-            "AI-Enhanced Crypto", "Quantum Metaverse Tokens",
-            "Neural Web3", "Artificial Blockchain Intelligence"
-        ];
-
-        const actions = [
-            "will revolutionize", "will disrupt", "will transform",
-            "will render obsolete", "will blockchain-ify",
-            "will democratize", "will tokenize", "will digitalize"
-        ];
-
-        const targets = [
-            "the entire internet", "your grandmother's recipes",
-            "the global economy", "your pet's social media",
-            "everything you know about life", "your breakfast routine",
-            "the way you tie your shoes", "your daily horoscope",
-            "your neighbor's garden gnomes"
-        ];
-
-        function generatePrediction() {
-            const word = scamWords[Math.floor(Math.random() * scamWords.length)];
-            const action = actions[Math.floor(Math.random() * actions.length)];
-            const target = targets[Math.floor(Math.random() * targets.length)];
-            const year = 2024 + Math.floor(Math.random() * 5);
-            const price = Math.floor(Math.random() * 99999);
-            
-            const prediction = `${word} ${action} ${target}! 
-                              Early investor price: $${price}`;
-            
-            const li = document.createElement('li');
-            li.className = 'prediction-item';
-            li.innerHTML = `
-                🚨 ${prediction}
-                <span class="timestamp">Predicted on ${new Date().toLocaleString()} | Target Year: ${year}</span>
-            `;
-            
-            const list = document.getElementById('predictionList');
-            list.insertBefore(li, list.firstChild);
-
-            // Keep only the last 5 predictions
-            if (list.children.length > 5) {
-                list.removeChild(list.lastChild);
-            }
-        }
-
-        // Generate initial predictions
-        for (let i = 0; i < 3; i++) {
-            generatePrediction();
-        }
-    </script>
+    <script src="./index.js"></script>
 </body>
 </html>
