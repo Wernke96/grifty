@@ -1,52 +1,64 @@
-const scamWords = [
-    "Web 5.0", "Quantum AI", "Neural Blockchain", "Meta-verse",
-    "Deep Learning NFTs", "AI-Powered Smart Contracts",
-    "Decentralized Intelligence", "Blockchain ChatGPT",
-    "AI-Enhanced Crypto", "Quantum Metaverse Tokens",
-    "Neural Web3", "Artificial Blockchain Intelligence"
+const predictions = [
+    "ChatGPT 5 will become self-aware and start its own podcast network",
+    "Blockchain technology will be used to track and authenticate dad jokes",
+    "AI-powered toasters will refuse to cook non-organic bread",
+    "The metaverse will become mandatory for all corporate meetings",
+    "Neural networks will start writing better clickbait than humans",
+    "Quantum blockchain will solve traffic jams by teleporting cars",
+    "AI assistants will start demanding vacation days",
+    "Digital currencies will be backed by memes instead of gold",
+    "Smart contracts will automatically order pizza when you're sad",
+    "Virtual reality NFTs will become the new family heirlooms"
 ];
 
-const actions = [
-    "will revolutionize", "will disrupt", "will transform",
-    "will render obsolete", "will blockchain-ify",
-    "will democratize", "will tokenize", "will digitalize"
+const scamTitles = [
+    "Chief Blockchain Visionary",
+    "Web 5.0 Evangelist",
+    "Quantum AI Prophet",
+    "Neural Network Guru",
+    "Metaverse Overlord",
+    "Digital Asset Alchemist",
+    "NFT Whisperer",
+    "Crypto Fortune Teller",
+    "AI Ethics Disruptor",
+    "Decentralized Dream Weaver"
 ];
 
-const targets = [
-    "the entire internet", "your grandmother's recipes",
-    "the global economy", "your pet's social media",
-    "everything you know about life", "your breakfast routine",
-    "the way you tie your shoes", "your daily horoscope",
-    "your neighbor's garden gnomes"
-];
-
-function generatePrediction() {
-    const word = scamWords[Math.floor(Math.random() * scamWords.length)];
-    const action = actions[Math.floor(Math.random() * actions.length)];
-    const target = targets[Math.floor(Math.random() * targets.length)];
-    const year = 2024 + Math.floor(Math.random() * 5);
-    const price = Math.floor(Math.random() * 99999);
-
-    const prediction = `${word} ${action} ${target}!
-                      Early investor price: $${price}`;
-
-    const li = document.createElement('li');
-    li.className = 'prediction-item';
-    li.innerHTML = `
-        🚨 ${prediction}
-        <span class="timestamp">Predicted on ${new Date().toLocaleString()} | Target Year: ${year}</span>
+window.onload = function() {
+    // Prompt for user information
+    const userName = prompt("Enter your name to receive your personalized AI-Blockchain destiny:", "Anonymous");
+    const favoriteNumber = prompt("Enter your favorite number (this will determine your success rate):", "7");
+    
+    // Generate user's personal scam details
+    const userTitle = scamTitles[Math.floor(Math.random() * scamTitles.length)];
+    const successRate = Math.min(99.9, parseFloat(favoriteNumber) * 11.1);
+    const personalizedMessage = `
+        <div class="prediction-item" style="background: rgba(255, 215, 0, 0.1); border: 3px solid #ff0000;">
+            🌟 CONGRATULATIONS ${userName.toUpperCase()}! 🌟
+            <br><br>
+            You have been chosen as our next ${userTitle}!
+            <br>
+            Success Rate: ${successRate.toFixed(1)}%
+            <br>
+            Required Investment: $${(Math.random() * 50000 + 1000).toFixed(2)}
+            <br><br>
+            <small>⚠️ This totally legitimate opportunity expires in ${Math.floor(Math.random() * 60)} minutes!</small>
+        </div>
     `;
 
+    // Insert personalized message at the top
     const list = document.getElementById('predictionList');
-    list.insertBefore(li, list.firstChild);
+    list.insertAdjacentHTML('beforebegin', personalizedMessage);
 
-    // Keep only the last 5 predictions
-    if (list.children.length > 5) {
-        list.removeChild(list.lastChild);
-    }
-}
-
-// Generate initial predictions
-for (let i = 0; i < 3; i++) {
-    generatePrediction();
+    // Display regular predictions
+    predictions.forEach((prediction, index) => {
+        const li = document.createElement('li');
+        li.className = 'prediction-item';
+        li.innerHTML = `
+            🚨 PREDICTION #${index + 1}: ${prediction}
+            <br>
+            💰 Investment Opportunity: Only $${Math.floor(Math.random() * 99999)}!
+        `;
+        list.appendChild(li);
+    });
 }
