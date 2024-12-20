@@ -1,3 +1,10 @@
+function updateHitCounter() {
+    let hits = localStorage.getItem('pageHits') || 0;
+    hits = parseInt(hits) + 1;
+    localStorage.setItem('pageHits', hits);
+    document.getElementById('hitCounter').textContent = hits;
+}
+
 const predictions = [
     "ChatGPT 5 will become self-aware and start its own podcast network",
     "Blockchain technology will be used to track and authenticate dad jokes",
@@ -25,10 +32,13 @@ const scamTitles = [
 ];
 
 window.onload = function() {
+    // Update hit counter
+    updateHitCounter();
+
     // Prompt for user information
     const userName = prompt("Enter your name to receive your personalized AI-Blockchain destiny:", "Anonymous");
     const favoriteNumber = prompt("Enter your favorite number (this will determine your success rate):", "7");
-    
+
     // Generate user's personal scam details
     const userTitle = scamTitles[Math.floor(Math.random() * scamTitles.length)];
     const successRate = Math.min(99.9, parseFloat(favoriteNumber) * 11.1);
